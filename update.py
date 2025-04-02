@@ -81,7 +81,47 @@ def create_pull_request(branch_name):
 
 # Step 4: Check for conflicts and merge the pull request if safe
 def check_and_merge_pull_request(branch_name):
+    import json
+
     try:
+        # First, check if the current user has permission to merge pull requests
+        permission_check = subprocess.run(
+            ['gh', 'api', 'user', '--jq', '.login'],
+            stdout=subprocess.PIPE,
+            text=True,
+            check=True
+        )
+        current_username = permission_check.stdout.strip()
+
+        # Get the repository name
+        repo_info = subprocess.run(
+            ['gh', 'repo', 'view', '--json', 'nameWithOwner'],
+            stdout=subprocess.PIPE,
+            text=True,
+            check=True
+        )
+
+        repo_data = json.loads(repo_info.stdout)
+        repo_name = repo_data['nameWithOwner']
+
+        # Check user permissions
+        user_permission = subprocess.run(
+            ['gh', 'api', f'repos/{repo_name}/collaborators/{current_username}/permission', '--jq', '.permission'],
+            stdout=subprocess.PIPE,
+            text=True,
+            check=True
+        )
+        permission_level = user_permission.stdout.strip().lower()
+
+        # Check if user has write or admin permissions
+        can_merge = permission_level in ['admin', 'write']
+
+        if not can_merge:
+            print(
+                f"You don't have permission to merge pull requests in this repository. Your permission level: {permission_level}")
+            return
+
+        # Rest of the original function code for checking and merging PRs
         # Get the PR number for the branch
         pr_info = subprocess.run(
             ['gh', 'pr', 'list', '--head', branch_name, '--json', 'number'],
@@ -91,7 +131,6 @@ def check_and_merge_pull_request(branch_name):
         )
 
         # Parse the JSON output to get the PR number
-        import json
         pr_data = json.loads(pr_info.stdout)
 
         if not pr_data:
