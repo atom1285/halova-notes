@@ -13,28 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "_PDT/POD/Maturitné Otázky.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
-            }
-          }
-        ]
-      },
-      {
-        "id": "fdeb435b2dcfcfc9",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "e9430c38b9eca704",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Maturitné Otázky"
             }
           }
         ]
@@ -110,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "_PDT/POD/Maturitné Otázky.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Maturitné Otázky"
             }
           },
           {
@@ -156,20 +141,21 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "_PDT/POD/Maturitné Otázky.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Maturitné Otázky"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,6 +169,18 @@
   },
   "active": "fbf4a095cfd1e368",
   "lastOpenFiles": [
-    "Welcome.md"
+    "_PDT/POD/Maturitné Otázky.md",
+    "_PDT/POD.md",
+    "_PDT.md",
+    "Vseobecne predmety.md",
+    "SJL.md",
+    "SJL/LIT.md",
+    "Odbory.md",
+    "Untitled.canvas",
+    "MAT/Untitled.md",
+    "_PDT/POD",
+    "_PDT",
+    "Welcome.md",
+    "MAT"
   ]
 }
